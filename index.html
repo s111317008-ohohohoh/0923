@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教師情境判斷測驗 測驗結果報告 - 黃郁晴</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden">
+        <!-- Header -->
+        <div class="bg-blue-600 text-white p-6 md:p-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold mb-2">教師情境判斷測驗</h1>
+                <h2 class="text-xl opacity-90">測驗結果報告 (小教)</h2>
+            </div>
+            <div class="mt-4 md:mt-0 text-right bg-blue-700 p-4 rounded-lg shadow-inner">
+                <p class="text-sm opacity-80">測驗日期</p>
+                <p class="text-xl font-semibold">2026 / 08 / 10</p>
+            </div>
+        </div>
+
+        <!-- Personal Info -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-6 md:p-8 bg-blue-50 border-b border-gray-200">
+            <div>
+                <span class="block text-sm text-gray-500">姓名</span>
+                <span class="block font-semibold text-lg">黃郁晴</span>
+            </div>
+            <div>
+                <span class="block text-sm text-gray-500">性別 / 年級</span>
+                <span class="block font-semibold text-lg">女 / 2年級</span>
+            </div>
+            <div>
+                <span class="block text-sm text-gray-500">學號</span>
+                <span class="block font-semibold text-lg">1151032</span>
+            </div>
+            <div>
+                <span class="block text-sm text-gray-500">學校</span>
+                <span class="block font-semibold text-lg">國立臺北教育大學</span>
+            </div>
+            <div class="col-span-2 md:col-span-4">
+                <span class="block text-sm text-gray-500">系所</span>
+                <span class="block font-semibold text-lg">教育經營與管理學系 (含教育政策與管理碩博士班)</span>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Left Column: Scores & Chart -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-blue-500 pl-3">測驗分數與整體表現</h3>
+                
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm border border-gray-100 mb-6 text-center">
+                    <p class="text-gray-500 mb-1">整體表現</p>
+                    <div class="flex justify-center items-end space-x-4">
+                        <div>
+                            <span class="text-4xl font-bold text-blue-600">16.19</span>
+                            <span class="text-sm text-gray-500 block">平均分數</span>
+                        </div>
+                        <div>
+                            <span class="text-4xl font-bold text-green-600">81</span>
+                            <span class="text-sm text-gray-500 block">百分等級 (PR)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-64 md:h-80">
+                    <canvas id="scoreChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Right Column: Result Description -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 border-l-4 border-indigo-500 pl-3">結果描述</h3>
+                
+                <div class="bg-indigo-50 rounded-xl p-6 shadow-sm border border-indigo-100 mb-6">
+                    <h4 class="text-lg font-bold text-indigo-800 mb-2">您的教師類型：<span class="text-2xl text-indigo-600">展翅高飛型</span></h4>
+                    <p class="text-gray-700 leading-relaxed">
+                        面對小學教師工作所遭遇的問題，您選擇的解決方式與其他人相比，無論是在教學層面上，或是人際層面上，均較能夠有效解決問題。因此，只要繼續努力，未來您將成為優良的小學教師。
+                    </p>
+                    
+                    <div class="mt-4 flex space-x-4">
+                        <div class="bg-white p-3 rounded-lg shadow-sm flex-1 text-center">
+                            <span class="block text-sm text-gray-500">教學 (平均 3.25)</span>
+                            <span class="font-bold text-indigo-600">PR 71</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow-sm flex-1 text-center">
+                            <span class="block text-sm text-gray-500">人際 (平均 3.23)</span>
+                            <span class="font-bold text-indigo-600">PR 78</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Improvements -->
+                <h3 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-500 pl-3">有待加強與建議</h3>
+                <div class="bg-orange-50 rounded-xl p-6 shadow-sm border border-orange-100">
+                    <div class="mb-3">
+                        <span class="bg-orange-200 text-orange-800 text-sm font-bold px-3 py-1 rounded-full">有待加強：教師教學</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        建議未來多參與教學方面的相關課程，學習基本學科知識與教育方法，提升教學效能；多累積實務經驗，詢問有經驗的教師，培養多元創新且有效教學技巧，能夠因應兒童的不同而適性育才。可多探索自己的優劣勢，了解自己的興趣與專長，找到自己生涯的發展方向。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Scores Table -->
+        <div class="p-6 md:p-8 bg-gray-50 border-t border-gray-200">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">各向度詳細說明</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-blue-700 mb-2 flex justify-between">班級經營 <span class="text-gray-500 text-sm">PR 92 | Avg 3.50</span></h4>
+                    <p class="text-sm text-gray-600">是指教師透過具體的策略與方法，建構全班友善環境與良好班級氣氛，協助小學學生建立生活習性與遵守生活常規。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-blue-700 mb-2 flex justify-between">同儕互動 <span class="text-gray-500 text-sm">PR 73 | Avg 3.25</span></h4>
+                    <p class="text-sm text-gray-600">是指教師在國小校園中，與同事、長官、及行政人員之間的人際互動，或與學校單位間的互動。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-orange-600 mb-2 flex justify-between">教師教學 <span class="text-gray-500 text-sm">PR 32 | Avg 3.00</span></h4>
+                    <p class="text-sm text-gray-600">是指教師透過多種方式，傳授小學學生在生活上必要的知識、情意及技能，協助學生學習生活必要知識。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-blue-700 mb-2 flex justify-between">學生輔導 <span class="text-gray-500 text-sm">PR 61 | Avg 3.11</span></h4>
+                    <p class="text-sm text-gray-600">教師透過同理、教導直接方式，幫助小學學生在心理、情緒、人際、及生涯等各方面的成長與發展。</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-100">
+                    <h4 class="font-bold text-blue-700 mb-2 flex justify-between">親師溝通 <span class="text-gray-500 text-sm">PR 56 | Avg 3.33</span></h4>
+                    <p class="text-sm text-gray-600">是指教師為協助小學學生，與家長間進行相互的溝通合作，就雙方在教育理念、教養態度等面向上建立共識。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-800 text-gray-400 text-center p-4 text-sm">
+            <p>資料來源：ISJSExamS_20260810223958_Report.pdf</p>
+            <p>&copy; 國立臺灣師範大學心測中心版權所有, 翻印必究 (僅供個人網站展示使用)</p>
+        </div>
+    </div>
+
+    <!-- Chart Configuration -->
+    <script>
+        const ctx = document.getElementById('scoreChart').getContext('2d');
+        const scoreChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['班級經營', '教師教學', '同儕互動', '學生輔導', '親師溝通'],
+                datasets: [{
+                    label: '百分等級 (PR)',
+                    data: [92, 32, 73, 61, 56],
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderColor: 'rgba(59, 130, 246, 1)',
+                    pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                        pointLabels: {
+                            font: { family: "'Noto Sans TC', sans-serif", size: 14, weight: 'bold' },
+                            color: '#4B5563'
+                        },
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            stepSize: 20,
+                            backdropColor: 'transparent',
+                            color: '#9CA3AF'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: { family: "'Noto Sans TC', sans-serif" }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
